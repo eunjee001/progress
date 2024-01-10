@@ -1,6 +1,7 @@
 package com.kkyoungs.progress
 
 import android.R
+import android.animation.Animator
 import android.graphics.drawable.AnimationDrawable
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
@@ -22,9 +23,24 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val circleSprite = CircleSprite()
-//        binding.spinKit.setIndeterminateDrawable(circleSprite)
+        binding.lotti.addAnimatorListener(object : Animator.AnimatorListener {
+            override fun onAnimationStart(animation: Animator) {
+                // 애니메이션이 시작될 때
+            }
 
+            override fun onAnimationEnd(animation: Animator) {
+                // 애니메이션이 종료될 때
+                binding.lotti.visibility = View.GONE
+            }
+
+            override fun onAnimationCancel(animation: Animator) {
+                // 애니메이션이 취소될 때
+            }
+
+            override fun onAnimationRepeat(animation: Animator) {
+                // 애니메이션이 시작된 이후 반복될 때
+            }
+        })
 
     }
     }
